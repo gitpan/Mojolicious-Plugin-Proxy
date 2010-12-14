@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Mojolicious-Plugin-Proxy
-version:            0.1
+version:            0.2
 abstract:           Proxy requests
 author:
     - Marcus Ramberg<mramberg@cpan.org>
