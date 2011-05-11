@@ -1,3 +1,7 @@
+0.3    2011-05-11 11:30:005-11 11:30:005-11 11:30:005-11 11:30:005-11 11:30:00
+    - Fix pod
+    - Stop using deprecated method
+
 0.2    2010-12-14 09:01:00
 
     - Update to use async fetching if available 

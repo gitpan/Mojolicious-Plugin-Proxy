@@ -2,37 +2,37 @@ package Mojolicious::Plugin::Proxy;
 
 use base 'Mojolicious::Plugin';
 
-use Mojo::Client;
-
-our $VERSION='0.2';
+our $VERSION='0.3';
 
 sub register {
     my ($self,$app) = @_;
      
      
-    $app->renderer->add_helper(
+    $app->helper(
         proxy_to => sub {
            my $c = shift;
            my $url = Mojo::URL->new(shift);
            my %args = @_ ;
            $url->query($c->req->params) 
                if($args{with_query_params});
-           $c->client->async->get($url, sub {
+           $c->render_later;
+           $c->ua->get($url, sub {
                my ($self, $tx) = @_;
             
                if (my $res=$tx->success) {
                    $c->tx->res($res);
-	               $c->rendered;
+                   $c->rendered;
                }
                else {
+                   warn "failed";
                    my ($msg,$error) = $tx->error;
-	               $c->tx->res->headers->add('X-Remote-Status',$error.': '.$msg);	
+                   $c->tx->res->headers->add('X-Remote-Status',$error.': '.$msg);	
                    $c->render(
                        status => 500,
                        text => 'Failed to fetch data from backend'
                    );
                }
-           })->start;
+           });
     });
 }
 
@@ -51,9 +51,9 @@ Mojolicious::Plugin::Proxy - Proxy requests to a backend server
 
 =head1 DESCRIPTION
 
-Proxy requests to backend URL using L<Mojo::Client>.
+Proxy requests to backend URL using L<Mojo::UserAgent>.
 
-=head1 METHODS
+=head1 HELPERS 
 
 =head2 proxy_to $url, [%options]
 
