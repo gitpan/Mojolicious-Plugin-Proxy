@@ -4,7 +4,7 @@
       "Marcus Ramberg<mramberg@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.140640",
    "license" : [
       "artistic_2"
    ],
@@ -37,16 +37,16 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "http://github.com/kraih/mojo/issues"
+         "web" : "http://github.com/marcusramberg/mojolicious-plugin-proxy/issues"
       },
-      "homepage" : "http://mojolicious.org",
+      "homepage" : "http://marcus.nordaaker.com",
       "license" : [
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
-         "url" : "http://github.com/kraih/mojo"
+         "url" : "http://github.com/marcusramberg/mojolicious-plugin-proxy"
       },
       "x_MailingList" : "http://groups.google.com/group/mojolicious"
    },
-   "version" : "0.4"
+   "version" : "0.6"
 }
